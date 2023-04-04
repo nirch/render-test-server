@@ -4,7 +4,9 @@ var cors = require('cors');
 const port = 3000;
 
 const { MongoClient } = require('mongodb');
-const uri = 'mongodb://localhost:27017/test';
+const uri = process.env.MONGODB_URI
+  ? process.env.MONGODB_URI
+  : 'mongodb://localhost:27017/test';
 const mongo = new MongoClient(uri);
 
 // enable all cors requests
